@@ -12,7 +12,7 @@ public class Main {
         for (int i = 0; i < match.length; i ++) {
             System.out.println("Матч " + (i + 1) + ": ");
             match[i] = scan.nextInt();
-            totalscore = totalscore + match[i];
+            totalscore = totalscore + match[0];
         }
         int max = match[0];
         int min = match[0];
