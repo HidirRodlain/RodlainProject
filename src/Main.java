@@ -3,10 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
-
-
         Scanner scan = new Scanner(System.in);
         System.out.println("Ударные дроны: \n1.Герань.\n2.Шахед.\n3.Ланцет");
         String choiceDrone = scan.nextLine();
@@ -47,10 +43,6 @@ public class Main {
         }
     }
 }
-
-
-
-
 
 
 
