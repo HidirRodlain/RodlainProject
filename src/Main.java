@@ -1,77 +1,56 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> tourist = new ArrayList<>();
+        ArrayList<String> touristname = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
-        System.out.println("Вы директор реалтор отеля\nВаша задача заселить гостей!");
-        boolean isHoutel = true;
+        System.out.println("\t\t\tHotel Hundra\nУ нас дешевые номера\nХорший вид с окна\nПарковка и многое другое!\n");
+        boolean isworkhoutel = true;
         while (true) {
-            System.out.println("1.Заселить гостя");
-            System.out.println("2.Показать список жильцов");
-            System.out.println("3.Выселить гостя по имени");
-            System.out.println("Выйти из системы\n");
-            System.out.print("Выбериет: \n");
-            int choicedo = scan.nextInt();
-
-            switch (choicedo) {
+            System.out.println("1.Заселить гостей");
+            System.out.println("2.Список гостей");
+            System.out.println("3.Выселить гостя");
+            System.out.println("4.Выйти с системы\n");
+            System.out.print("Выберите: ");
+            int hotelsistem = scan.nextInt();
+            switch (hotelsistem) {
                 case 1:
-                        System.out.print("Введите имя туриста: ");
-                        String turist = scan.nextLine();
-                        turist = scan.nextLine();
-                        tourist.add(turist);
-                        System.out.println("Вы успешно заселили туриста " + turist  + "\n");
-                        break;
-
-                case 2:
-                    System.out.println("\nСписок всех жильцов отеля\n\t\tСписок: \n" + tourist);
+                    scan.nextLine();
+                    System.out.println("Сотрудник: Здрасвуйте добро пожаловать в наш отель!");
+                    System.out.println("Сотрудник: Введите ваше имя и фамилия\n");
+                    System.out.print("Имя: ");
+                    String name = scan.nextLine();
+                    System.out.print("Фамилия: ");
+                    String surname = scan.nextLine();
+                    touristname.add(name + " " + surname);
+                    System.out.println("Поздровляем уважаемый " + name + " " + surname + " Вы успешно заселены!\n");
                     break;
-
+                case 2:
+                    System.out.println("Менеджер: Покажите мне список гостей! \nСотрудник: Вот список на сегодняшний день");
+                    System.out.println("\t\tСписко жильцов отеля: \n" + touristname + "\n");
+                    break;
                 case 3:
-                    System.out.println("Напишите имя человека которого хотите выселить");
+                    System.out.println("Гость: Спасибо за отличый отдых!\nСотрудник: Всегда пожалуйста! рады вас видеть снова\n");
                     if (scan.hasNextLine()) {
-                    System.out.print("Введите имя: ");
-                    String turistout = scan.nextLine();
-                    turistout = scan.nextLine();
-                        boolean removed = tourist.remove(turistout);
+                        System.out.println("Введите имя и фамилию: ");
+                        String remnamesern = scan.nextLine();
+                        remnamesern = scan.nextLine();
+                        boolean removed = touristname.remove(remnamesern);
                         if (removed) {
-                            System.out.println("Вы выселили туриста: \"" + turistout + "\"");
+                            System.out.println("Система: Гость " + remnamesern + " успешно выселен!");
                         } else {
-                            System.out.println("Туриста с именем \"" + turistout + "\" не найдено");
+                            System.out.println("Не удалось найти " + remnamesern);
                         }
-                        break;
                     }
-
-
-
-
-
-                    }
-
-
-
-                    }
-
-
+                case 4:
+                    System.out.println("Вы вышли с системы!");
+                    isworkhoutel = false;
             }
-
-
         }
+    }
+}
 
-
-
-
-
-
-//• 1. Заселить гостя (add)
-//
-//• 2. Показать список жильцов
-//
-//• 3. Выселить гостя по имени (remove)
-//
-//• 4. Выйти из системы управления
 
 
 
