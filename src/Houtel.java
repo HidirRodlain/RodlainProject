@@ -1,48 +1,89 @@
-import java.util.ArrayList;
+import com.sun.security.jgss.GSSUtil;
+
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Houtel {
     public static void main(String[] args) {
-        ArrayList<String> tourist = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
-        System.out.println("Вы директор реалтор отеля\nВаша задача заселить гостей!");
-        boolean isHoutel = true;
-        while (true) {
-            System.out.println("1.Заселить гостя");
-            System.out.println("2.Показать список жильцов");
-            System.out.println("3.Выселить гостя по имени");
-            System.out.println("Выйти из системы\n");
-            System.out.print("Выбериет: \n");
-            int choicedo = scan.nextInt();
+        LinkedList<String> queue = new LinkedList<>();
 
-            switch (choicedo) {
+        String tikett = "Вы взяли билет";
+        String vipTiket = "Вы взяли вип билет";
+        boolean Work = true;
+        System.out.println("\t\t--Кинотеатр--");
+        while (Work) {
+            System.out.println("1.Введите имя - Взять билет");
+            System.out.println("2.Весь очередь");
+            System.out.println("3.Кто заходит слудуюший");
+            System.out.println("4.Купить вип билет");
+            System.out.print("Выберите: ");
+            int choice = scan.nextInt();
+            switch (choice) {
+
                 case 1:
-                    System.out.print("Введите имя туриста: ");
-                    String turist = scan.nextLine();
-                    turist = scan.nextLine();
-                    tourist.add(turist);
-                    System.out.println("Вы успешно заселили туриста " + turist + "\n");
+                    System.out.println("Введите ваше имя и возьмите билет (взять) \n");
+                    System.out.print("\nВведите имя: ");
+                    String name = scan.nextLine();
+                    name = scan.nextLine();
+                    queue.add(name);
+                    System.out.print("Взять билет: ");
+                    String tiket = scan.nextLine();
+                    System.out.println(tikett + "\n");
                     break;
 
                 case 2:
-                    System.out.println("\nСписок всех жильцов отеля\n\t\tСписок: \n" + tourist);
+                    System.out.println("Вся очердеь в кинотеатр (слева на право) \n");
+                    for (int i = 0; i < queue.size(); i++) {
+                        System.out.println("Очередь " + (i+1) + ": " + queue.get(i));
+                    }
                     break;
 
                 case 3:
-                    System.out.println("Напишите имя человека которого хотите выселить");
-                    if (scan.hasNextLine()) {
-                        System.out.print("Введите имя: ");
-                        String turistout = scan.nextLine();
-                        turistout = scan.nextLine();
-                        boolean removed = tourist.remove(turistout);
-                        if (removed) {
-                            System.out.println("Вы выселили туриста: \"" + turistout + "\"");
-                        } else {
-                            System.out.println("Туриста с именем \"" + turistout + "\" не найдено");
-                        }
+                    System.out.println("Следуюший человек в очердеи \n");
+                    System.out.println("Человек: ");
+                    String next = queue.peekFirst();
+                    System.out.println("Следующий: " + next);
+                    break;
+
+                case 4:
+                    System.out.println("Купить вип билет (вы сразу становитесь один из первых в очердь) \n");
+                    System.out.print("Введите vip имя: ");
+                    String namevip = scan.nextLine();
+                    namevip = scan.nextLine();
+                    System.out.print("Взять вип: ");
+                    String vip = scan.nextLine();
+                    System.out.println(vipTiket);
+                    queue.addFirst(namevip);
+                    break;
+
+                case 5:
+                    System.out.println("Время сеанса началась");
+                    if (queue.isEmpty()) {
+                        System.out.println("В очердеи никого нет");
+                    }else {
+                        System.out.println("Первый в очереди " + queue.pollFirst() + " зашел в кинотеатр \n");
                         break;
                     }
+
+
+
+
+
             }
-        }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
